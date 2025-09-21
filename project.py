@@ -29,8 +29,8 @@ levfactor = 575/1080
 floor = levfactor*1080 - 50
 l_wall = 640/1920 * x
 r_wall = 1180/1920 * x
-levelCount = 0
-score = levelCount * 100
+levelCount = 1
+score = (levelCount-1) * 100
 
 class Cookie(pygame.sprite.Sprite):
 	def __init__(self, imgs: list, height: int = 128, width: int = 128, health: int = 100, atk: int = 20):
@@ -164,7 +164,7 @@ class GumDrop(pygame.sprite.Sprite):
 		self.gumdropx = self.rect.x
 		self.move_timer = 10
 
-enemy = GumDrop(["green_gumdrop.png", "red_gumdrop.png", "blue_gumdrop.png"], 160, 160, (levelCount + 1)*100, 30, (levelCount + 1)*5)
+enemy = GumDrop(["green_gumdrop.png", "red_gumdrop.png", "blue_gumdrop.png"], 160, 160, (levelCount)*100, 30, (levelCount)*5)
 
 titlefont = pygame.font.SysFont("timesnewroman",  60, True)
 title = titlefont.render("Cookie Climber", True, color)
@@ -239,7 +239,7 @@ levelChange = False
 
 while running == True:
 	if gameStarted == True:
-		player.atk = (levelCount + 2)//2 * 20
+		player.atk = (levelCount + 1)//2 * 20
 
 		if player.rect.y < floor and player.jumping == True:
 			if player.jump_timer > 0:
@@ -314,6 +314,7 @@ while running == True:
 
 		if levelChange == True:			
 			score += 100
+			player.health = 100
 			screen.fill((30, 0, 0))
 
 			for i in range(0, int(levfactor*1080/5)):
