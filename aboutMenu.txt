@@ -1,0 +1,5 @@
+Cookie Climber was made by Mia Melishchuk for SteelHacks XII.
+It was made in Python 3 using the Pygame module. The developer
+was assisted by the GeeksForGeeks.org's lessons about how to use
+the Pygame module, the Pygame documentation, and the AI in Cursor (used for debugging)
+Left and Right arrows to Move, Up to Jump, Space + Move to Attack
